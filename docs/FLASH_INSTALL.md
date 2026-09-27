@@ -11,7 +11,7 @@ No pip packages are required for installation, text retrieval, documents or the
 static browser. Existing Ollama/Open WebUI/services are never reconfigured.
 
 ```sh
-git clone https://github.com/smilidon/end-of-the-world-bot.git
+git clone https://github.com/JLP-Computer-Solutions-LLC/end-of-the-world-bot.git
 cd end-of-the-world-bot
 sh install.sh
 ```
@@ -171,7 +171,7 @@ Never delete a real installation to test recovery.
 ```sh
 python3 tools/verify_clean_install.py --source .
 # After publishing a branch, verify exactly the pushed commit via a NEW clone:
-python3 tools/verify_clean_install.py --repo https://github.com/smilidon/end-of-the-world-bot.git --ref BRANCH --expect-sha FULL_COMMIT_SHA
+python3 tools/verify_clean_install.py --repo https://github.com/JLP-Computer-Solutions-LLC/end-of-the-world-bot.git --ref BRANCH --expect-sha FULL_COMMIT_SHA
 ```
 
 The verifier uses fresh temporary source, HOME, simulated-drive and sentinel data;
