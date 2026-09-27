@@ -16,7 +16,7 @@ import urllib.request
 import zipfile
 
 VERSION = '0.1.0-beta.1'
-BASE = 'https://github.com/smilidon/end-of-the-world-bot/releases/download/v' + VERSION + '/'
+BASE = 'https://github.com/JLP-Computer-Solutions-LLC/end-of-the-world-bot/releases/download/v' + VERSION + '/'
 
 
 def ask_network(description):

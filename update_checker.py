@@ -12,8 +12,8 @@ import urllib.request
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
-API = 'https://api.github.com/repos/smilidon/end-of-the-world-bot/releases'
-RELEASES = 'https://github.com/smilidon/end-of-the-world-bot/releases/tag/'
+API = 'https://api.github.com/repos/JLP-Computer-Solutions-LLC/end-of-the-world-bot/releases'
+RELEASES = 'https://github.com/JLP-Computer-Solutions-LLC/end-of-the-world-bot/releases/tag/'
 CACHE_CAP = 512 * 1024
 VERSION = re.compile(r'v?(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:-(alpha|beta|rc)\.(0|[1-9][0-9]*))?\Z')
 
