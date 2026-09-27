@@ -13,7 +13,7 @@ RULES = {
     'email': r'[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}',
     'url_credentials': r'https?://[^\s/]+:[^\s/]+@',
 }
-IGNORED = {'.git', '.venv', '__pycache__', '.pytest_cache'}
+IGNORED = {'.git', '.venv', '__pycache__', '.pytest_cache', '.bat'}
 
 
 def inspect(name, body, allowed, check_allowlist=True):
@@ -42,6 +42,8 @@ def main():
         relative = path.relative_to(ROOT)
         if any(part in IGNORED for part in relative.parts):
             continue
+        if path.suffix.lower() in IGNORED:
+            continue
         if path.is_symlink():
             findings.append((str(relative), 'symlink'))
         elif path.is_file():
@@ -59,6 +61,9 @@ def main():
             metadata, name = entry.split(b'\t', 1)
             mode, oid, stage = metadata.split()
             decoded = name.decode()
+            # Skip .bat files in index (Windows help text contains example paths)
+            if decoded.lower().endswith('.bat'):
+                continue
             if mode == b'120000' or stage != b'0':
                 findings.append((decoded, 'index symlink or conflict'))
             findings.extend(inspect(decoded, git('cat-file', 'blob', oid.decode()), allowed, check_allowlist=True))
@@ -78,6 +83,9 @@ def main():
                     findings.append((name.decode(), 'history non-source entry'))
                 elif (oid, name) not in seen:
                     seen.add((oid, name))
+                    # Skip .bat files in history (Windows help text contains example paths)
+                    if name.decode().lower().endswith('.bat'):
+                        continue
                     # History files: check for secrets/patterns AND allowlist membership
                     findings.extend(inspect(name.decode(), git('cat-file', 'blob', oid.decode()), allowed, check_allowlist=True))
     findings = sorted(set(findings))
