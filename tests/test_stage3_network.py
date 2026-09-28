@@ -111,6 +111,13 @@ class Permission(unittest.TestCase):
 
 
 class UpdateChecker(unittest.TestCase):
+    def test_repository_endpoints_use_canonical_owner(self):
+        canonical = 'JLP-Computer-Solutions-LLC/end-of-the-world-bot'
+        self.assertEqual(updates.API, f'https://api.github.com/repos/{canonical}/releases')
+        self.assertEqual(updates.RELEASES, f'https://github.com/{canonical}/releases/tag/')
+        self.assertEqual(bootstrap.BASE, f'https://github.com/{canonical}/releases/download/v{bootstrap.VERSION}/')
+        self.assertIn(f'https://github.com/{canonical}', download_manuals.UA)
+
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
