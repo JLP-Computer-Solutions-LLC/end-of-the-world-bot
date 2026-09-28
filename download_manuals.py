@@ -20,7 +20,7 @@ import urllib.parse
 import urllib.request
 import urllib.robotparser
 
-UA = 'OfflineManualLibrary/0.1 (+https://github.com/smilidon/end-of-the-world-bot)'
+UA = 'OfflineManualLibrary/0.1 (+https://github.com/JLP-Computer-Solutions-LLC/end-of-the-world-bot)'
 CAP = 16 * 1024 * 1024
 
 

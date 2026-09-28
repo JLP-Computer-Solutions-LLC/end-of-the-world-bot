@@ -50,7 +50,7 @@ use `PYTHON=/path/to/python3 sh launch.sh doctor` (quote a path containing space
 ## Open the download
 
 Download the versioned `linux-python.zip` and `SHA256SUMS` from the
-[GitHub release](https://github.com/smilidon/end-of-the-world-bot/releases/tag/v0.1.0-beta.1).
+[GitHub release](https://github.com/JLP-Computer-Solutions-LLC/end-of-the-world-bot/releases/tag/v0.1.0-beta.1).
 Verify the ZIP before extraction from the folder containing both files:
 
 ```sh

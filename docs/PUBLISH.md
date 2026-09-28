@@ -48,3 +48,25 @@ Publish the ZIP, SHA256SUMS, START_HERE.md, LICENSE and NOTICE.md in a GitHub
 prerelease targeting that tested commit. The archive itself contains complete
 corresponding source. Download the published assets, verify their hashes, and
 exercise the downloaded launcher and installation before announcing the release.
+
+## Repository transfer (2026-09-27)
+
+Canonical source: <https://github.com/JLP-Computer-Solutions-LLC/end-of-the-world-bot>.
+The bootstrap release base, update API, downloader attribution, clone examples,
+and documentation links use this organization. Release versions, asset names,
+checksum verification, and download consent behavior are unchanged. Refresh
+`FILE_MANIFEST.sha256` whenever allowlisted source bytes change.
+
+**Confirmed:** the former repository API route resolves to the organization and
+the existing `v0.1.0-beta.1` release lists the documented bootstrap, ZIP, Windows
+installer, and checksum assets. Existing published assets may retain former-owner
+URLs internally; preserve those immutable assets and their working redirects.
+These source changes belong in a future reviewed release, not an overwrite of
+the published tag/assets. No release is published by this audit.
+
+`CODEOWNERS` retains the person `@smilidon`: repository transfer is not a transfer
+of that person's identity. An organization/team replacement requires a real
+team and owner authorization. No Cloudflare, Vercel, or OVH deployment binding
+was found in application/release configuration; vendored provider examples are
+not deployment connections. Owner verification of organization release-workflow
+permissions remains separate from source URL changes.
